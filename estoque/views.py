@@ -1,3 +1,9 @@
 from django.shortcuts import render
 
-# Create your views here.
+from estoque.models import Categoria
+
+
+def add_produto(request):
+   if request.method == 'GET':
+      categorias = Categoria.objects.all()
+      return render(request, 'add_produto.html', {'categorias': categorias} )
